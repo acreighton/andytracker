@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>CTA train tracker demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <META http-equiv="Pragma" content="no-cache">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
+    </head>
+    <body>
+        <div class="row-fluid">
+            <div class="span4 offset4">
+                <form>
+                    <select id="stops">
+                        <option data-mapid="--" value="--">Select stop</option>
+                        <option value="41240">Addison</option>
+                        <option value="40010">Austin</option>
+                        <option value="40060">Belmont</option>
+                        <option value="40570">California</option>
+                        <option value="41410">Chicago</option>
+                        <option value="40970">Cicero</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="40430">Clinton</option>
+                        <option value="40230">Cumberland</option>
+                        <option value="40590">Damen</option>
+                        <option value="40320">Division</option>
+                        <option value="40390">ForestPark</option>
+                        <option value="40490">Grand</option>
+                        <option value="40980">Harlem (Forest Park Branch)</option>
+                        <option value="40750">Harlem (O'Hare Branch)</option>
+                        <option value="40810">Illinois Medical District</option>
+                        <option value="40550">Irving Park</option>
+                        <option value="40070">Jackson</option>
+                        <option value="41280">Jefferson Park</option>
+                        <option value="40250">Kedzie-Homan</option>
+                        <option value="41340">LaSalle</option>
+                        <option value="41020">Logan Square</option>
+                        <option value="40790">Monroe</option>
+                        <option value="41330">Montrose</option>
+                        <option value="40890">O'Hare</option>
+                        <option value="40180">Oak Park</option>
+                        <option value="40920">Pulaski</option>
+                        <option value="40470">Racine</option>
+                        <option value="40820">Rosemont</option>
+                        <option value="40350">UIC-Halsted</option>
+                        <option value="40370">Washington</option>
+                        <option value="40220">Western (Forest Park Branch)</option>
+                        <option value="40670">Western (O'Hare Branch)</option>
+                    </select>
+                    <button id="button" class="btn">Get arrival times</button>
+                </form>
+                <div id="output" class="output"></div>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="js/mustache.js"></script>
+        <script src="js/jquery.xml2json.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
