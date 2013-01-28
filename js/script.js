@@ -6,11 +6,19 @@
 	    key = '',
 	    button = $('#button'),
 	    output = $('#output'),
-	    proxy = 'http://andywebdev.com/CTA/proxy.php?url=';
+	    proxy = 'http://andywebdev.com/CTA/proxy.php?url=',
+	    lineSelect = $('#lines'),
+	    stops = $('.stops');
+
+	lineSelect.change(function() {
+		stops.addClass('hidden').removeClass('current');
+	    var lineSelection = $('#lines option:selected').val();
+		$('select#' + lineSelection).addClass('current').removeClass('hidden');
+	});
 
 	$(button).click(function (e) {
 		e.preventDefault();
-		var mapId = $('#stops option:selected').val();
+		var mapId = $('select.stops.current option:selected').val();
 		var path = baseUrl + '?key=' + key + '&mapid=' + mapId;
 		var url = proxy + encodeURIComponent(path) + '&mode=native';
 		if (mapId === '--') {
@@ -41,12 +49,17 @@
 		    
 		console.log(jsonString);
 
-		//response sometimes returns eta as object instead of array, so push everything into an array
-		if (typeof eta.length === 'undefined') {
-			etas.push(eta);
+		if (typeof eta === 'undefined') {
+			$(output).html('<p>No scheduled arrivals at this time</p>');
+			console.log('eta is undefined');
 		} else {
-			for (var i = 0; i < eta.length; i++) {
-				etas.push(eta[i]);
+			//response sometimes returns eta as object instead of array, so push everything into an array
+			if (typeof eta.length === 'undefined') {
+				etas.push(eta);
+			} else {
+				for (var i = 0; i < eta.length; i++) {
+					etas.push(eta[i]);
+				}
 			}
 		}
 
@@ -65,7 +78,7 @@
 
 			//looping over operational direction
 			var direction = etas[i].trDr;
-			
+
 			if (direction == 1) {
 				times.northBound.push(etas[i]);
 			} else {
