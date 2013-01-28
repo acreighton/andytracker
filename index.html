@@ -22,8 +22,19 @@
         <div class="row-fluid">
             <div class="span4 offset4">
                 <form>
-                    <select id="stops">
-                        <option data-mapid="--" value="--">Select stop</option>
+                    <select id="lines">
+                        <option value="--">Select line</option>
+                        <option value="red-line">Red</option>
+                        <option value="blue-line">Blue</option>
+                        <option value="brown-line">Brown</option>
+                        <option value="green-line">Green</option>
+                        <option value="orange-line">Orange</option>
+                        <option value="purple-line">Purple</option>
+                        <option value="pink-line">Pink</option>
+                        <option value="yellow-line">Yellow</option>
+                    </select>
+                    <select class="stops hidden" id="blue-line">
+                        <option value="--">Select stop</option>
                         <option value="41240">Addison</option>
                         <option value="40010">Austin</option>
                         <option value="40060">Belmont</option>
@@ -57,6 +68,187 @@
                         <option value="40370">Washington</option>
                         <option value="40220">Western (Forest Park Branch)</option>
                         <option value="40670">Western (O'Hare Branch)</option>
+                    </select>
+                    <select class="stops hidden" id="red-line">
+                        <option value="--">Select stop</option>
+                        <option value="41230">47th</option>
+                        <option value="40910">63rd</option>
+                        <option value="40990">69th</option>
+                        <option value="40240">79th</option>
+                        <option value="41430">87th</option>
+                        <option value="40450">95th/DanRyan</option>
+                        <option value="41420">Addison</option>
+                        <option value="41200">Argyle</option>
+                        <option value="41320">Belmont</option>
+                        <option value="40340">Berwyn</option>
+                        <option value="41380">BrynMawr</option>
+                        <option value="41000">Cermak-Chinatown</option>
+                        <option value="41450">Chicago</option>
+                        <option value="40630">Clark/Division</option>
+                        <option value="41220">Fullerton</option>
+                        <option value="41170">Garfield</option>
+                        <option value="40330">Grand</option>
+                        <option value="40760">Granville</option>
+                        <option value="41490">Harrison</option>
+                        <option value="40900">Howard</option>
+                        <option value="40560">Jackson</option>
+                        <option value="41190">Jarvis</option>
+                        <option value="41660">Lake</option>
+                        <option value="40770">Lawrence</option>
+                        <option value="41300">Loyola</option>
+                        <option value="41090">Monroe</option>
+                        <option value="40100">Morse</option>
+                        <option value="40650">North/Clybourn</option>
+                        <option value="41400">Roosevelt</option>
+                        <option value="40080">Sheridan</option>
+                        <option value="40190">Sox-35th</option>
+                        <option value="40880">Thorndale</option>
+                        <option value="40540">Wilson</option>
+                    </select>
+                    <select class="stops hidden" id="brown-line">
+                        <option value="--">Select stop</option>
+                        <option value="40680">Adams/Wabash</option>
+                        <option value="41440">Addison</option>
+                        <option value="40660">Armitage</option>
+                        <option value="41320">Belmont</option>
+                        <option value="40710">Chicago</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="40090">Damen</option>
+                        <option value="40530">Diversey</option>
+                        <option value="40870">Francisco</option>
+                        <option value="41220">Fullerton</option>
+                        <option value="40850">Harold Washington Library-State/VanBuren</option>
+                        <option value="41460">IrvingPark</option>
+                        <option value="41180">Kedzie</option>
+                        <option value="41290">Kimball</option>
+                        <option value="40160">LaSalle/VanBuren</option>
+                        <option value="40640">Madison/Wabash</option>
+                        <option value="40460">MerchandiseMart</option>
+                        <option value="41500">Montrose</option>
+                        <option value="41310">Paulina</option>
+                        <option value="40040">Quincy</option>
+                        <option value="40200">Randolph/Wabash</option>
+                        <option value="41010">Rockwell</option>
+                        <option value="40800">Sedgwick</option>
+                        <option value="40360">Southport</option>
+                        <option value="40260">State/Lake</option>
+                        <option value="40730">Washington/Wells</option>
+                        <option value="41210">Wellington</option>
+                        <option value="41480">Western</option>
+                    </select>
+                    <select class="stops hidden" id="green-line">
+                        <option value="--">Select stop</option>
+                        <option value="41120">35th-Bronzeville-IIT</option>
+                        <option value="41270">43rd</option>
+                        <option value="41080">47th</option>
+                        <option value="40130">51st</option>
+                        <option value="40680">Adams/Wabash</option>
+                        <option value="40170">Ashland</option>
+                        <option value="40290">Ashland/63rd</option>
+                        <option value="41260">Austin</option>
+                        <option value="41360">California</option>
+                        <option value="40280">Central</option>
+                        <option value="40480">Cicero</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="41160">Clinton</option>
+                        <option value="41670">Conservatory-CentralParkDrive</option>
+                        <option value="40720">CottageGrove</option>
+                        <option value="40510">Garfield</option>
+                        <option value="40940">Halsted</option>
+                        <option value="40020">Harlem/Lake</option>
+                        <option value="40300">Indiana</option>
+                        <option value="41070">Kedzie</option>
+                        <option value="41140">KingDrive</option>
+                        <option value="40700">Laramie</option>
+                        <option value="40640">Madison/Wabash</option>
+                        <option value="41510">Morgan</option>
+                        <option value="41350">OakPark</option>
+                        <option value="40030">Pulaski</option>
+                        <option value="40200">Randolph/Wabash</option>
+                        <option value="40610">Ridgeland</option>
+                        <option value="41400">Roosevelt</option>
+                        <option value="40260">State/Lake</option>
+                    </select>
+                    <select class="stops hidden" id="orange-line">
+                        <option value="--">Select stop</option>
+                        <option value="40120">35th/Archer</option>
+                        <option value="40680">Adams/Wabash</option>
+                        <option value="41060">Ashland</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="41130">Halsted</option>
+                        <option value="40850">Harold Washington Library-State/VanBuren</option>
+                        <option value="41150">Kedzie</option>
+                        <option value="40160">LaSalle/VanBuren</option>
+                        <option value="40640">Madison/Wabash</option>
+                        <option value="40930">Midway</option>
+                        <option value="40960">Pulaski</option>
+                        <option value="40040">Quincy</option>
+                        <option value="40200">Randolph/Wabash</option>
+                        <option value="41400">Roosevelt</option>
+                        <option value="40260">State/Lake</option>
+                        <option value="40730">Washington/Wells</option>
+                        <option value="40310">Western</option>
+                    </select>
+                    <select class="stops hidden" id="purple-line">
+                        <option value="--">Select stop</option>
+                        <option value="40680">Adams/Wabash</option>
+                        <option value="40660">Armitage</option>
+                        <option value="41320">Belmont</option>
+                        <option value="41250">Central</option>
+                        <option value="40710">Chicago</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="40050">Davis</option>
+                        <option value="40690">Dempster</option>
+                        <option value="40530">Diversey</option>
+                        <option value="40520">Foster</option>
+                        <option value="41220">Fullerton</option>
+                        <option value="40850">Harold Washington Library-State/VanBuren</option>
+                        <option value="40900">Howard</option>
+                        <option value="40160">LaSalle/VanBuren</option>
+                        <option value="41050">Linden</option>
+                        <option value="40640">Madison/Wabash</option>
+                        <option value="40270">Main</option>
+                        <option value="40460">Merchandise Mart</option>
+                        <option value="40400">Noyes</option>
+                        <option value="40040">Quincy</option>
+                        <option value="40200">Randolph/Wabash</option>
+                        <option value="40800">Sedgwick</option>
+                        <option value="40840">South Boulevard</option>
+                        <option value="40260">State/Lake</option>
+                        <option value="40730">Washington/Wells</option>
+                        <option value="41210">Wellington</option>
+                    </select>
+                    <select class="stops hidden" id="pink-line">
+                        <option value="--">Select stop</option>
+                        <option value="40830">18th</option>
+                        <option value="40580">54th/Cermak</option>
+                        <option value="40680">Adams/Wabash</option>
+                        <option value="40170">Ashland</option>
+                        <option value="40440">California</option>
+                        <option value="40780">CentralPark</option>
+                        <option value="40420">Cicero</option>
+                        <option value="40380">Clark/Lake</option>
+                        <option value="41160">Clinton</option>
+                        <option value="40210">Damen</option>
+                        <option value="40850">Harold Washington Library-State/VanBuren</option>
+                        <option value="41040">Kedzie</option>
+                        <option value="40600">Kostner</option>
+                        <option value="40160">LaSalle/VanBuren</option>
+                        <option value="40640">Madison/Wabash</option>
+                        <option value="41510">Morgan</option>
+                        <option value="41030">Polk</option>
+                        <option value="40150">Pulaski</option>
+                        <option value="40040">Quincy</option>
+                        <option value="40200">Randolph/Wabash</option>
+                        <option value="40260">State/Lake</option>
+                        <option value="40730">Washington/Wells</option>
+                        <option value="40740">Western</option>
+                    </select>
+                    <select class="stops hidden" id="yellow-line">
+                        <option value="--">Select stop</option>
+                        <option value="40140">Dempster-Skokie</option>
+                        <option value="40900">Howard</option>
+                        <option value="41680">Oakton-Skokie</option>
                     </select>
                     <button id="button" class="btn">Get arrival times</button>
                 </form>
