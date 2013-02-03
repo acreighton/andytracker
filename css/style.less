@@ -7,15 +7,14 @@ body {
 	font-weight: bold;
 	background: darkcyan;
 	color: #eee;
-	overflow-x: hidden;
 	max-width: 100%;
 }
 
 form {
 	margin: 0 auto;
 	text-align: center;
-	width: 300px;
-
+	max-width: 300px;
+	
 	select,
 	button {
 		margin: 0 auto;
@@ -34,11 +33,15 @@ form {
 }
 
 .row-fluid {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .output {
 	text-align: center;
+
+	> p {
+		margin-top: 20px;
+	}
 
 	h2 {
 		padding: 20px 0;
