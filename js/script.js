@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
 	
 	"use strict";
 
@@ -11,6 +11,7 @@
 	    stops = $('.stops');
 
 	lineSelect.change(function() {
+		$(output).empty();
 		stops.addClass('hidden').removeClass('current');
 	    var lineSelection = $('#lines option:selected').val();
 		$('select#' + lineSelection).addClass('current').removeClass('hidden');
@@ -19,10 +20,13 @@
 	$(button).click(function (e) {
 		e.preventDefault();
 		var mapId = $('select.stops.current option:selected').val();
+		var line = $('#lines option:selected').val();
 		var path = baseUrl + '?key=' + key + '&mapid=' + mapId;
 		var url = proxy + encodeURIComponent(path) + '&mode=native';
 		if (mapId === '--') {
 			$(output).html('<p class="error">Please select a stop.</p>');
+		} else if (line === '--'){
+			$(output).html('<p class="error">Please select a line.</p>');
 		} else {
 			$.ajax({
 				type: 'GET',
@@ -34,6 +38,17 @@
 		}
 	});
 	
+	function parseDate (data) {
+		//using this date pattern to accommodate Safari:
+		data.arrT = data.arrT.replace(/\D/g, '');
+		data.arrT = new Date(data.arrT.replace(/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/, '$2/$3/$1 $4:$5:$6'));
+		data.prdt = data.prdt.replace(/\D/g, '');
+		data.prdt = new Date(data.prdt.replace(/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/, '$2/$3/$1 $4:$5:$6'));
+		data.arrivalTime = data.arrT - data.prdt;
+		data.arrivalTime = Math.floor(data.arrivalTime / 100000);
+		//converting isApp to number/boolean
+		data.isApp = Number(data.isApp);
+	}
 
 	function showData (xml) {
 		$(output).empty();
@@ -50,8 +65,8 @@
 		console.log(jsonString);
 
 		if (typeof eta === 'undefined') {
-			$(output).html('<p>No scheduled arrivals at this time</p>');
-			console.log('eta is undefined');
+			$(output).html('<p class="null">No scheduled arrivals at this time</p>');
+			return false;
 		} else {
 			//response sometimes returns eta as object instead of array, so push everything into an array
 			if (typeof eta.length === 'undefined') {
@@ -64,17 +79,7 @@
 		}
 
 		for (var i = 0, len = etas.length; i < len; i++) {
-
-			//using this date pattern to accommodate Safari:
-			etas[i].arrT = etas[i].arrT.replace(/\D/g, '');
-			etas[i].arrT = new Date(etas[i].arrT.replace(/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/, '$2/$3/$1 $4:$5:$6'));
-			etas[i].prdt = etas[i].prdt.replace(/\D/g, '');
-			etas[i].prdt = new Date(etas[i].prdt.replace(/^(\d{4})(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)$/, '$2/$3/$1 $4:$5:$6'));
-			etas[i].arrivalTime = etas[i].arrT - etas[i].prdt;
-			etas[i].arrivalTime = Math.floor(etas[i].arrivalTime / 100000);
-
-			//converting isApp to number/boolean
-			etas[i].isApp = Number(etas[i].isApp);
+			parseDate(etas[i]);
 
 			//looping over operational direction
 			var direction = etas[i].trDr;
@@ -120,4 +125,4 @@
 		$(output).empty();
 		$(output).html('<p>There has been an error.</p>');
 	}
-})();
+})(jQuery);
