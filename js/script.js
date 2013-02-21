@@ -21,7 +21,7 @@
 		e.preventDefault();
 		var mapId = $('select.stops.current option:selected').val();
 		var line = $('#lines option:selected').val();
-		var path = baseUrl + '?key=' + key + '&mapid=' + mapId;
+		var path = baseUrl + '?key=' + key + '&mapid=' + mapId + '&rt=' + line;
 		var url = proxy + encodeURIComponent(path) + '&mode=native';
 		if (mapId === '--') {
 			$(output).html('<p class="error">Please select a stop.</p>');
