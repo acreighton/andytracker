@@ -1,4 +1,5 @@
-//to build a dropdown, visit one of the CTA mobile sites for a particular line
+//to build a dropdown, visit http://www.transitchicago.com/mobile/traintracker.aspx,
+//navigate to a CTA mobile sites for a particular line
 //(e.g. http://www.transitchicago.com/mobile/traintrackerstops.aspx?rid=310) and drop this baby in the console.  BOOM
 (function () {
 	var lines = document.getElementById('ttmobile_stopbuttons').children;
