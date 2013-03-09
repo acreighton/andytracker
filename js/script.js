@@ -11,18 +11,19 @@
 	    stops = $('.stops');
 
 	lineSelect.change(function() {
+	    var lineSelection = $('#lines option:selected').val();
 		$(output).empty();
 		stops.addClass('hidden').removeClass('current');
-	    var lineSelection = $('#lines option:selected').val();
 		$('select#' + lineSelection).addClass('current').removeClass('hidden');
 	});
 
 	$(button).click(function (e) {
 		e.preventDefault();
-		var mapId = $('select.stops.current option:selected').val();
-		var line = $('#lines option:selected').val();
-		var path = baseUrl + '?key=' + key + '&mapid=' + mapId + '&rt=' + line;
-		var url = proxy + encodeURIComponent(path) + '&mode=native';
+		var mapId = $('select.stops.current option:selected').val(),
+		    line  = $('#lines option:selected').val(),
+		    path  = baseUrl + '?key=' + key + '&mapid=' + mapId + '&rt=' + line,
+		    url   = proxy + encodeURIComponent(path) + '&mode=native';
+		    
 		if (mapId === '--') {
 			$(output).html('<p class="error">Please select a stop.</p>');
 		} else if (line === '--'){
